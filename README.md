@@ -1,8 +1,8 @@
 ### py-q4rmq: A simple, fast, scalable and SCHEDULABLE message queue using RabbitMQ in Python.
 
-py-q4rmq enhances RabbitMQ to be able to use scheduling queues through Python using The idea of [dead-letter-exchange](https://www.rabbitmq.com/dlx.html).
+```py-q4rmq``` enhances RabbitMQ to be able to use scheduling queues through Python using the idea of [dead-letter-exchange](https://www.rabbitmq.com/dlx.html).
 You can enqueue queues with scheduling time and that'll be consumed on the time you specified.
-Ofcource, As its based on RabbitMQ, its enough fast, scalable and durable.
+Of course, As its based on RabbitMQ, its enough fast, scalable and durable.
 You can shut down RabbitMQ even if queues exit yet. And they will be consumed after RabbitMQ restarted.
 If the scheduled time of them have passed yet then they will be consumed immediately, otherwise will be delayed to the scheduled time.
 
@@ -142,7 +142,6 @@ def callback(m):
         q.stop_listen() # stop listenning.
     else:
         print(m)
-
 q.listen('tag', callback)
 print("Listen-Finished!")
 
@@ -165,19 +164,19 @@ with q.open():
 Then go back to the first repl.
 
 ```python
-=> {'this_queue': 'will_be_first'}
-=> {'this_queue': 'will_be_second'}
+# => {'this_queue': 'will_be_first'}
+# => {'this_queue': 'will_be_second'}
 
 # ... wait for 10 seconds ...
 
-=> {'this_queue': 'will_be_third'}
+# => {'this_queue': 'will_be_third'}
 
 # ... wait for about a minute ...
 
-=> {'this_queue': 'will_be_fourth'}
+# => {'this_queue': 'will_be_fourth'}
 
 # ... wait for about a hour (3600secs)
 
-=> Listen-Finished!
+# => Listen-Finished!
 
 ```
