@@ -1,0 +1,4 @@
+memo*
+*.pyc
+env.*
+env
