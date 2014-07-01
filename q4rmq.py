@@ -103,7 +103,7 @@ class QueueManager(object):
             self.channel.queue_bind(exchange=otag, routing_key=stag+'.*', queue=rtag)
             self.tags_tbl[rtag] = True
 
-    def __init__(self, host=None, userid=None, on_dead=lambda m: m, channel=None):
+    def __init__(self, host=None, userid=None, on_dead=lambda m: m, channel=None, error_times_to_ignore = 3):
         self.host         = host
         self.userid       = userid
         self.connection   = None
@@ -113,8 +113,7 @@ class QueueManager(object):
         self.on_dead      = on_dead
         self.listenning   = False
         self.consumer     = None
-        # self.invoking_queue_id = None
-        self.error_times_to_ignore = 3
+        self.error_times_to_ignore = error_times_to_ignore
         self.tags_tbl     = {}
 
     @contextmanager
