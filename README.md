@@ -171,11 +171,11 @@ Then go back to the first repl.
 
 # => {'this_queue': 'will_be_third'}
 
-# ... wait for about a minute ...
+# ... wait for about 1 minute ...
 
 # => {'this_queue': 'will_be_fourth'}
 
-# ... wait for about a hour (3600secs)
+# ... wait for about an hour (3600secs)
 
 # => Listen-Finished!
 
